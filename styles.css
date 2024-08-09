@@ -1,0 +1,272 @@
+/* Definindo a fonte personalizada */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('Fonts/geometric 415 black bt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos gerais do corpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f4f4f4, #e6e6e6);
+}
+
+/* Estilos do cabeçalho */
+header {
+    background: linear-gradient(to right, #7c5930, #0b0603);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 80px;
+    filter: brightness(0) invert(1); /* Faz a imagem ficar branca */
+
+    margin-right: 2rem; /* Espaçamento entre a logo e os links */
+}
+
+/* Estilos da barra de navegação */
+nav {
+    display: flex;
+    align-items: center; /* Alinha os links verticalmente ao centro */
+    justify-content: center; /* Centraliza os links */
+    flex-grow: 1; /* Faz o nav ocupar todo o espaço disponível */
+}
+
+nav a {
+    font-family: 'CustomFont', Arial, sans-serif;
+    color: #fff;
+    font-size: 27px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 1rem; /* Espaçamento entre os links */
+    transition: color 0.5s ease;
+}
+
+nav a:hover {
+    color: #ff6600;
+}
+
+
+/* Estilos do contêiner principal */
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos do conteúdo */
+.content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content h2 {
+    color: #d92b04;
+    border-bottom: 2px solid #d92b04;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos das informações de contato */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.contact-item {
+    flex: 1 1 calc(50% - 1rem);
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    background: #e6e6e6;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-item h3 {
+    margin-top: 0;
+    color: #f28705;
+}
+
+.contact-item p {
+    margin: 0.5rem 0;
+}
+
+.contact-item a {
+    color: #d92b04;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+contact-item a:hover {
+    color: #a61b00;
+}
+
+contact-item i {
+    margin-right: 0.5rem;
+}
+
+/* Estilos do rodapé */
+footer {
+    background-color: #fbaa35;
+    padding: 0.5rem 0;
+    text-align: center;
+    color: #383838;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 0.8rem;
+    border-top: 1px solid #fff;
+}
+/* Contêiner do efeito de expansão */
+.expanding-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ocupa 80% da largura da página */
+    height: 745px;
+    margin: 3rem auto;
+    perspective: 1000px;
+    margin-top: 4px; /* Remove a margem superior */
+    padding-top: 0;
+}
+
+/* Cada cartão */
+.expanding-card {
+    position: absolute;
+    width:19%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.8s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+    transform: scale(0.85); /* Diagonal e zoom ajustado */
+}
+
+/* Alinhamento das imagens */
+.expanding-card:nth-child(1) { left: 0%; }
+.expanding-card:nth-child(2) { left: 16.66%; }
+.expanding-card:nth-child(3) { left: 33.32%; }
+.expanding-card:nth-child(4) { left: 49.98%; }
+.expanding-card:nth-child(5) { left: 66.64%; }
+.expanding-card:nth-child(6) { left: 83.3%; }
+
+/* Efeito de expansão */
+.expanding-card:hover {
+    width: 100%;
+    transform: none;
+    z-index: 2;
+    margin-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Ocultar cartões não em destaque */
+.expanding-card:hover ~ .expanding-card {
+    visibility: hidden;
+}
+
+/* Conteúdo do cartão */
+.expanding-card-content {
+    position: absolute;
+    bottom: 10%; /* Ajustado para centralizar o conteúdo */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.expanding-card:hover .expanding-card-content {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .expanding-cards-container {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+    .expanding-card {
+        position: relative;
+        width: 100%;
+        transform: none;
+    }
+
+    .expanding-card:hover {
+        transform: none;
+    }
+
+    .expanding-card-content {
+        position: relative;
+        background: none;
+        color: #333;
+        text-shadow: none;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem; /* Espaçamento entre os ícones */
+}
+
+.social-icon {
+    color: #fff; /* Cor dos ícones */
+    font-size: 1.7rem; /* Tamanho dos ícones */
+    transition: color 0.5s ease;
+     margin-left: 2rem;
+}
+
+.social-icon:hover {
+    color: #ff6600; /* Cor laranja ao passar o mouse */
+}
+
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
